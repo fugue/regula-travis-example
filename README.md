@@ -129,7 +129,7 @@ Scroll down and you’ll see the output from Regula’s tests. At the end, you�
     ],
     "rule_results": {
       "FAIL": 1,
-      "PASS": 4,
+      "PASS": 5,
       "WAIVED": 0
     },
     "severities": {
@@ -144,7 +144,7 @@ Scroll down and you’ll see the output from Regula’s tests. At the end, you�
 }
 ```
 
-This shows us that our Terraform IaC failed 1 rule and passed 4. The rule that failed was of high severity. Scroll back up and we can see exactly which rule failed:
+This shows us that our Terraform IaC failed 1 rule and passed 5. The rule that failed was of high severity. Scroll back up and we can see exactly which rule failed:
 
 ```
 {
@@ -156,8 +156,8 @@ This shows us that our Terraform IaC failed 1 rule and passed 4. The rule that f
         "NIST-800-53_vRev4_SC-7a.",
         "NIST-800-53_vRev4_SI-4a.2."
       ],
-      "filepath": "dev_network",
-      "platform": "terraform",
+      "filepath": "dev_network/main.tf",
+      "input_type": "tf",
       "provider": "azurerm",
       "resource_id": "azurerm_network_security_group.devnsg",
       "resource_type": "azurerm_network_security_group",
@@ -204,7 +204,7 @@ We can confirm this in Regula's summary in the build log:
     ],
     "rule_results": {
       "FAIL": 0,
-      "PASS": 5,
+      "PASS": 6,
       "WAIVED": 0
     },
     "severities": {
