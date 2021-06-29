@@ -1,7 +1,7 @@
 env:
   global:
   - PATH="$HOME/.local/bin:$PATH"
-  - REGULA_VERSION=0.9.1
+  - REGULA_VERSION=1.0.0
 
 before_script:
 - mkdir "$HOME/.local/bin"
@@ -12,7 +12,7 @@ before_script:
 script:
 # Run regula
 - REGULA_OUTPUT="$(mktemp)"
-- (regula run || true) | tee "$REGULA_OUTPUT"
+- (regula run -f json || true) | tee "$REGULA_OUTPUT"
 - REGULA_RULES_PASSED="$(jq -r '.summary.rule_results.PASS' "$REGULA_OUTPUT")"
 - REGULA_RULES_FAILED="$(jq -r '.summary.rule_results.FAIL' "$REGULA_OUTPUT")"
 - echo "${REGULA_RULES_PASSED} rules passed, ${REGULA_RULES_FAILED} rules failed" >&2
