@@ -125,7 +125,7 @@ Scroll down and you’ll see the output from Regula’s tests. At the end, you�
 ```
   "summary": {
     "filepaths": [
-      "dev_network"
+      "dev_network/main.tf"
     ],
     "rule_results": {
       "FAIL": 1,
@@ -147,11 +147,10 @@ Scroll down and you’ll see the output from Regula’s tests. At the end, you�
 This shows us that our Terraform IaC failed 1 rule and passed 5. The rule that failed was of high severity. Scroll back up and we can see exactly which rule failed:
 
 ```
-{
-  "rule_results": [
     {
       "controls": [
-        "CIS-Azure_v1.1.0_6.1",
+        "CIS-Azure_v1.1.0_6.2",
+        "CIS-Azure_v1.3.0_6.2",
         "NIST-800-53_vRev4_AC-4",
         "NIST-800-53_vRev4_SC-7a.",
         "NIST-800-53_vRev4_SI-4a.2."
@@ -167,7 +166,14 @@ This shows us that our Terraform IaC failed 1 rule and passed 5. The rule that f
       "rule_name": "tf_azurerm_network_security_group_no_inbound_22",
       "rule_result": "FAIL",
       "rule_severity": "High",
-      "rule_summary": "Network security group rules should not permit ingress from '0.0.0.0/0' to port 22 (SSH)"
+      "rule_summary": "Network security group rules should not permit ingress from '0.0.0.0/0' to port 22 (SSH)",
+      "source_location": [
+        {
+          "path": "dev_network/main.tf",
+          "line": 25,
+          "column": 1
+        }
+      ]
     },
 ```
 
@@ -200,7 +206,7 @@ We can confirm this in Regula's summary in the build log:
 ```
   "summary": {
     "filepaths": [
-      "dev_network"
+      "dev_network/main.tf"
     ],
     "rule_results": {
       "FAIL": 0,
