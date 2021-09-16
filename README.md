@@ -150,10 +150,7 @@ This shows us that our Terraform IaC failed 1 rule and passed 5. The rule that f
     {
       "controls": [
         "CIS-Azure_v1.1.0_6.2",
-        "CIS-Azure_v1.3.0_6.2",
-        "NIST-800-53_vRev4_AC-4",
-        "NIST-800-53_vRev4_SC-7a.",
-        "NIST-800-53_vRev4_SI-4a.2."
+        "CIS-Azure_v1.3.0_6.2"
       ],
       "filepath": "dev_network/main.tf",
       "input_type": "tf",
@@ -167,6 +164,7 @@ This shows us that our Terraform IaC failed 1 rule and passed 5. The rule that f
       "rule_result": "FAIL",
       "rule_severity": "High",
       "rule_summary": "Network security group rules should not permit ingress from '0.0.0.0/0' to port 22 (SSH)",
+      "rule_remediation_doc": "https://docs.fugue.co/FG_R00191.html",
       "source_location": [
         {
           "path": "dev_network/main.tf",
